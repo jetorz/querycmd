@@ -1,8 +1,41 @@
 # Douban book
 db | https://book.douban.com/subject_search?search_text= | {query}
+
 # Baidu
 bd | https://www.baidu.com/s?wd= | {query}
+
+# Bing
+bing | http://cn.bing.com/search?q= | {query}
 # Amazon.com kindle
 ak | https://smile.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Ddigital-text&field-keywords= | {query}
+
 # 亚马逊中国 kindle
 yk | https://www.amazon.cn/s/ref=nb_sb_noss_2?url=search-alias%3Ddigital-text&field-keywords= | {query}
+
+# 维基百科
+wk | https://zh.wikipedia.org/wiki/Special:Search/ | {query}
+
+# Wikipedia
+
+wke | https://en.wikipedia.org/wiki/Special:Search/ | {query}
+
+# Wiki Quote
+wkq | https://zh.wikiquote.org/w/index.php?search= | {query}
+
+# Huaban
+hb | http://huaban.com/search/?q= | {query}
+
+# Merriam-Webster
+mw | https://www.merriam-webster.com/dictionary/ | {query}
+
+# JingDong
+
+jd | https://search.jd.com/Search?keyword= | {query}
+
+# WikiBooks
+
+wkb | https://en.wikibooks.org/wiki/Special:Search?search= | {query}
+
+# SaltTiger
+
+st | https://salttiger.com/?s= | {query}
