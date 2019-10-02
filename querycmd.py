@@ -1,59 +1,41 @@
-import sys, math
+import sys, math, os, platform, subprocess
 import webbrowser as wb
 
-def about():
-    wb.open_new_tab('about.html')
+def PraseEngine(cmdfile):
+    cmddict = {}
+    for line in cmdfile:
+        line = line.split()
+        key = line[1]
+        before = line[2]
+        after = ''
+        if len(line) > 4:
+            for i in range(4,len(line)):
+                after = after + line[i]
+        cmddict[key] = {'before':before, 'after':after}
+    return cmddict
 
-def dt():
-    a = float(input('输入年投资额（元）：'))
-    x = input('输入年化收益率百分比(8)：')
-    print(x)
-    if len(x) == 0:
-        x=0.08
+if __name__ == "__main__":
+    dbg = open('dbg.txt', 'w', encoding='utf8')
+    argv = sys.argv
+    print('argv=> %s' % argv, file=dbg)
+    cmdfile = open('engine.txt', 'r', encoding='utf-8')
+    engine = PraseEngine(cmdfile)
+    print('engine => %s.' % engine, file=dbg)
+
+    cmd = argv[1].lower()
+    print('cmd=>%s ' % cmd, file=dbg)
+    query = ''
+    if cmd in engine.keys():
+        print(cmd + ' is in engine.', file=dbg)
+        for i in range(2, len(argv)):
+            query = query + argv[i] + ' '
+        surl = engine[cmd]['before'] + query + engine[cmd]['after']
+        print('seach url is:' + surl, file=dbg)
     else:
-        x = float(x)/100
-    print(x)
-    n = int(input('输入定投年数（年）：')) * 1.0
-    M = a*(1+x)*(-1+pow((1+x),n))/x
-    print('定投结束后，总金额为：%.2f。' % M)
-    input('Press any key to continue...')
+        print(cmd + ' is not in engine.', file=dbg)
+        for i in range(1, len(argv)):
+            query = query + argv[i] + ' '
+        surl = engine['g']['before'] + query
 
-cmd = str(sys.argv[1])
-rest = sys.argv[2:]
-query = ""
-for r in rest:
-    query += str(r) + ' '
-
-cmdfile = open('engine.DongTalks', 'r',encoding='utf-8')
-
-# built-in functions
-cmddict = {'about': about, 'dt':dt}
-
-for line in cmdfile.readlines():
-    if line.startswith('#') or line.startswith('\n'):
-        pass
-    else:
-        engine = line.split(sep='|')
-        for i in range(0, len(engine)):
-            engine[i] = engine[i].strip()
-        if len(engine) == 3:
-            before = engine[1].strip()
-            after = ''
-        else:
-            after = engine[3]
-        searchurl = before + query + after
-        cmddict[engine[0]] = searchurl
-
-print(cmd)
-print(cmddict[cmd])
-
-if cmd not in cmddict.keys():
-    print('Unkonw command "%s". Contact me for detail.' % cmd)
-    print('You know how to find me, do you? ;)')
-    out = input()
-    sys.exit(0)
-else:
-    if type(cmddict[cmd]) == str:
-        wb.open_new_tab(cmddict[cmd])
-    else:
-        cmddict[cmd]()
+    wb.open_new_tab(surl)
+    dbg.close()

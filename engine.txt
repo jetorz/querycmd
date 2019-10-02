@@ -1,0 +1,13 @@
+Baidu bd https://www.baidu.com/s?wd= {query}
+Bing bing http://cn.bing.com/search?q= {query}
+DouBook db https://book.douban.com/subject_search?search_text= {query}
+DouMovie dm https://movie.douban.com/subject_search?search_text= {query} &cat=1002
+Google g https://www.google.com/#q= {query} 
+JingDong jd https://search.jd.com/Search?keyword= {query} &enc=utf-8
+SaltTiger st https://salttiger.com/?s= {query} 
+Scipy sp https://cn.bing.com/search?q= {query} +site%3adocs.scipy.org%2fdoc
+Wikipedia w https://en.wikipedia.org/wiki/Special:Search/ {query} 
+WikiChinese wc https://zh.wikipedia.org/wiki/Special:Search/ {query} 
+Youdao y http://dict.youdao.com/w/eng/ {query} 
+AmazonKindle yk https://www.amazon.cn/s/ref=nb_sb_noss_2?url=search-alias%3Ddigital-text&field-keywords= {query} 
+Zhihu zh https://www.zhihu.com/search?type=content&q= {query}
