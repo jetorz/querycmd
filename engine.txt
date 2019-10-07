@@ -3,6 +3,8 @@ Bing bing http://cn.bing.com/search?q= {query}
 DouBook db https://book.douban.com/subject_search?search_text= {query}
 DouMovie dm https://movie.douban.com/subject_search?search_text= {query} &cat=1002
 Google g https://www.google.com/#q= {query} 
+GTraChinese gc https://translate.google.com/#view=home&op=translate&sl=zh-CN&tl=en&text= {query}
+GTraEnglish ge https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text= {query}
 JingDong jd https://search.jd.com/Search?keyword= {query} &enc=utf-8
 SaltTiger st https://salttiger.com/?s= {query} 
 Scipy sp https://cn.bing.com/search?q= {query} +site%3adocs.scipy.org%2fdoc
